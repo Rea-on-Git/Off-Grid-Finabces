@@ -1,14 +1,5 @@
 import locale 
 print("Currency Formatter has run succesfully ")
-
-def get_users_currency():
-
-    try:
-        locale.setlocale(locale.LC_ALL, '')
-        symbol = locale.localeconv() ['currency_symbol']
-        return symbol  if symbol else '$'
-    except Exception:
-        return '$ Read '
     
 def format_currency(amount):
 

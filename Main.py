@@ -1,4 +1,5 @@
 from Currency import  format_currency
+from tools import get_posostoive_float, get_choice, get_description
 
 def Main_menu():
     print("\n" + "=" * 40)
@@ -17,8 +18,13 @@ def Main_menu():
     print("11.  Delete Savings Goal")
     print("12.  Exit Finacne Tracker")
     print("=" * 40)
+  
 
-# Test 
+# Testing
+print(f"{format_currency(300)}")
+get = get_posostoive_float(f"Take ")
+chc = get_choice("Find choice (1-2)", ['1', '2'])
+main = get_description("Hello ")
 
 
 
