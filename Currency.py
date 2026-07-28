@@ -1,6 +1,5 @@
 import locale 
-print("Currency Formatter has run succesfully ")
-    
+
 def format_currency(amount):
 
     try:

@@ -1,5 +1,6 @@
 from Currency import  format_currency
 from tools import get_posostoive_float, get_choice, get_description
+from Transactions import Tracker
 
 def Main_menu():
     print("\n" + "=" * 40)
@@ -18,15 +19,37 @@ def Main_menu():
     print("11.  Delete Savings Goal")
     print("12.  Exit Finacne Tracker")
     print("=" * 40)
+
+def main():
+    tracker = Tracker()
+    
+
+    while True:
+        Main_menu()
+        option = get_choice("Find choice (1-4)", ['1', '2', '3', '4'])
+
+        if option == '1':
+            amount = get_posostoive_float(f"Enter the allowance amount:  ")
+            description = get_description("Enter the description: ")
+            tracker.add_transactions(amount, description, "ALLOWANCE")
+
+        elif option == '2':
+            amount = get_posostoive_float(f"Enter the expense amount: ")
+            description = get_description("Enter the description: ")
+            tracker.add_transactions(amount, description, "EXPENSE")
+
+        elif option == '3':
+            print("")
+
+        elif option == '4':
+            print(f"\n  Current Balance: {format_currency(Tracker.view_balance)}\n")
+            
+
+main()
   
 
-# Testing
-print(f"{format_currency(300)}")
-get = get_posostoive_float(f"Take ")
-chc = get_choice("Find choice (1-2)", ['1', '2'])
-main = get_description("Hello ")
 
 
 
 
-Main_menu()
+
