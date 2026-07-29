@@ -39,7 +39,7 @@ def main():
             tracker.add_transactions(amount, description, "EXPENSE")
 
         elif option == '3':
-            print("")
+            tracker.view_transactions()
 
         elif option == '4':
             print(f"\n  Current Balance: {format_currency(tracker.view_balance())}\n")

@@ -53,4 +53,14 @@ class Tracker:
                 balance = balance - t["amount"]
         return balance
 
+    def view_transactions(self):
+        if not self.transactions:
+            print("You have not logged any transactions yet")
+
+        print("\n" + "=" * 60)
+        print(f"{'Date' :<20} {'Type' :<10} {'Amount' :<12} {'Description' }")
+        print("=" * 60)
+        for t in self.transactions:
+            print(f" {t['date'] :<20}   {t['type'] :<10}  {format_currency(t['amount']) :<12}  {t['description']} ")
+        print("=" * 60)
 
