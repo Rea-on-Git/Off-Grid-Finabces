@@ -47,10 +47,10 @@ class Tracker:
     def view_balance(self):
         balance = 0
         for t in self.transactions:
-            if t['type'] == ["ALLOWANCE"]:
-                balance += t["amount"]
+            if t['type'] == "ALLOWANCE":
+                balance = balance + t["amount"]
             else:
-                balance -= t["amount"]
+                balance = balance - t["amount"]
         return balance
 
 

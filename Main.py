@@ -42,7 +42,7 @@ def main():
             print("")
 
         elif option == '4':
-            print(f"\n  Current Balance: {format_currency(Tracker.view_balance)}\n")
+            print(f"\n  Current Balance: {format_currency(tracker.view_balance())}\n")
             
 
 main()
