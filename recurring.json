@@ -1,9 +1,1 @@
-[
-  {
-    "amount": 500.0,
-    "description": "trees",
-    "type": "EXPENSE",
-    "frequency": "WEEKLY",
-    "day": 6
-  }
-]
+[]
