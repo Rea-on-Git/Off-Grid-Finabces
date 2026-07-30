@@ -1,6 +1,5 @@
 from Currency import  format_currency
 from tools import get_posostoive_float, get_choice, get_description
-from reccuring import Reccuring
 from Transactions import Tracker
 
 def Main_menu():
@@ -23,6 +22,7 @@ def Main_menu():
 
 def main():
     tracker = Tracker()
+ 
     
 
     while True:
@@ -48,9 +48,8 @@ def main():
         elif option == '5':
             amount = get_posostoive_float(f"Enter expense amount:  {format_currency}")
             description = get_description()
-            trans_type = get_choice("Type (INCOME/EXPENSE):  " , ['INCOME', 'EXPENSE'])
-            frequency = get_choice("Frequency (DaIly/Weekly/Monthly): " ,
-                                   ['Daily', 'Weekly', 'Monthly'])
+            tran_type = get_choice("Type (INCOME/EXPENSE):  " , ['INCOME', 'EXPENSE'])
+            frequency = get_choice("Frequency (DaIly/Weekly/Monthly): " , ['DAILY', 'WEEKLY', 'MONTHLY'])
 
             day_value = None
             if frequency == "weekly":
@@ -58,14 +57,18 @@ def main():
                 day_value = int(input("Enter the day of week(1-6)"))
             elif frequency == "monthly":
                 day_value = int(input("Enter the day of month(1-31): "))
+            
+
+            tracker.reccuring.add_reccuring(amount, description, tran_type, frequency, day_value)
+
+        elif option == '6':
+            tracker.reccuring.view_reccuring
+
+        elif option == '7':
+            
 
             
 
-
-
-            
-
-            
 
 main()
   

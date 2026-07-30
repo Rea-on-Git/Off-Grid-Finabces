@@ -1,4 +1,5 @@
 import json
+from reccuring import Reccuring
 from Currency import format_currency
 from datetime import datetime
 from pathlib import Path
@@ -14,6 +15,7 @@ class Tracker:
     def __init__(self, filename = "transactions.json"):
         self.filename = get_base_path() / filename
         self._ensure_file_exist()
+        self.reccuring = Reccuring()
         self.transactions = self.load_transaction()
 
     def _ensure_file_exist(self):
@@ -64,6 +66,7 @@ class Tracker:
             print(f" {t['date'] :<20}   {t['type'] :<10}  {format_currency(t['amount']) :<12}  {t['description']} ")
         print("=" * 60)
 
-    def _apply_reccuring(self):
-        apply = 
-
+    
+   # def apply_due_reccuring(self):
+      #  due = self.reccuring.get_due_reccuring()
+       # for item in due:
