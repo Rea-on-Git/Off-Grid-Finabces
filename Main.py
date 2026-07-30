@@ -57,9 +57,15 @@ def main():
                 day_value = int(input("Enter the day of week(1-6): "))
             elif frequency == "MONTHLY":
                 day_value = int(input("Enter the day of month(1-31): "))
+
+            savings_idx = None
+            Contribution = get_choice("Contributing to a Savings Goal? " , ['Y','N'])
+            if Contribution == 'Y':
+                tracker.savings.view_goals()
+                savings_idx = int(input("Enter the Goal of the number you want:  ")) - 1
             
 
-            tracker.reccuring.add_reccuring(amount, description, tran_type, frequency, day_value)
+            tracker.reccuring.add_reccuring(amount, description, tran_type, frequency, day_value, savings_idx)
 
         elif option == '6':
             tracker.reccuring.view_reccuring()

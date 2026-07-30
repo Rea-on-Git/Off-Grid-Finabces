@@ -25,27 +25,28 @@ class Reccuring():
 
     def load_reccuring(self):
         try:
-            with open(self.filename, 'r') as f:
-                return json.load(f)
+            with open (self.filename, 'r') as f:
+                        return json.load(f)
         except (json.JSONDecodeError, FileNotFoundError):
-            return[]
+                    return[]
 
     def save_reccuring(self):
         with open(self.filename, 'w') as f:
-            json.dump(self.load_reccuring, f, indent=2)
+            json.dump(self.reccuring,  f, indent=2)
 
-    def add_reccuring(self, amount, description, tran_type, frequency, day_value):
+    def add_reccuring(self, amount, description, tran_type, frequency, day_value, savings_idx):
 
         reccuring = {
             'amount' : amount,
             'description' : description,
             'type' : tran_type,
             'frequency' : frequency,
-            'day' : day_value
+            'day' : day_value,
+            'Savings_goal_index' : savings_idx
          }
 
         self.reccuring.append(reccuring)
-        self.save_reccuring
+        self.save_reccuring()
         print(f"Reccuring {tran_type} of {format_currency(amount)} ({frequency} on {day_value})")
 
     def view_reccuring(self):
@@ -75,11 +76,12 @@ class Reccuring():
                            'amount': rule['amount'],
                            'description': rule['description'] + "(reccuring)",
                            'type': rule['type'],
+                           'savings_goal_index': rule.get('Savings_goal_index')
                              })
                        rule['last_applied'] = str(today)
        
                if due:
-                   self.save_reccuring
+                   self.save_reccuring()
                return due
 
     def is_due(self, rule, today):

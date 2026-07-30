@@ -69,6 +69,14 @@ class Tracker:
         print("=" * 60)
 
     
-   # def apply_due_reccuring(self):
-      #  due = self.reccuring.get_due_reccuring()
-       # for item in due:
+    def apply_due_reccuring(self):
+        due = self.reccuring.get_due_reccuring()
+        for item in due:
+            saving_idx = item.get('savings_goal_index')
+            if saving_idx is None:
+                self.savings.deposit(saving_idx, item['Amount'])
+                print(f"Auto deposited {format_currency(item['Amount'])} into savings goal")
+            else:
+                self.add_transactions(item['amount'], item['description'], item['type'])
+           
+
