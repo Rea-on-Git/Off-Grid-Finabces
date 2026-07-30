@@ -77,7 +77,7 @@ def main():
 
         elif option == '8':
             name = get_description("Savings Goal Name:  ")
-            target = get_posostoive_float("Deposit Amount:  ")
+            target = get_posostoive_float("Savings Goal Amount:  ")
             tracker.savings.add_goal(name, target)
 
         elif option == '9':
@@ -85,7 +85,7 @@ def main():
             if tracker.savings.goals:
                 idx = int(input("Select Goal Number")) - 1 
                 amount = get_posostoive_float("Amount:  ")
-                tracker.savings.deposit
+                tracker.savings.deposit(idx, amount)
 
         elif option == '10':
             tracker.savings.view_goals()
