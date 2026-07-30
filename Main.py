@@ -27,7 +27,7 @@ def main():
 
     while True:
         Main_menu()
-        option = get_choice("Find choice (1-7)", ['1', '2', '3', '4', '5', '6', '7'])
+        option = get_choice("Find choice (1-12)", ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
 
         if option == '1':
             amount = get_posostoive_float(f"Enter the allowance amount:  ")
@@ -68,6 +68,32 @@ def main():
             tracker.reccuring.view_reccuring()
             idx = int(input("Enter the number to delete: "))
             tracker.reccuring.delete_reccuring(idx)
+
+        elif option == '8':
+            name = get_description("Savings Goal Name:  ")
+            target = get_posostoive_float("Deposit Amount:  ")
+            tracker.savings.add_goal(name, target)
+
+        elif option == '9':
+            tracker.savings.view_goals()
+            if tracker.savings.goals:
+                idx = int(input("Select Goal Number")) - 1 
+                amount = get_posostoive_float("Amount:  ")
+                tracker.savings.deposit
+
+        elif option == '10':
+            tracker.savings.view_goals()
+
+        elif option == '11':
+            tracker.savings.view_goals()
+            idx = int(input("Select Goal to delete: ")) -1 
+            tracker.savings.delete_goal(idx)
+
+        elif option == '12':
+            print("Goodbye and Thankyou for using Off Grid Finanance tracker")
+            break
+
+
 
 
             

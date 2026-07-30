@@ -1,6 +1,7 @@
 import json
 from reccuring import Reccuring
 from Currency import format_currency
+from savings import SavingControlelr
 from datetime import datetime
 from pathlib import Path
 import sys
@@ -17,6 +18,7 @@ class Tracker:
         self._ensure_file_exist()
         self.reccuring = Reccuring()
         self.transactions = self.load_transaction()
+        self.savings = SavingControlelr()
 
     def _ensure_file_exist(self):
         if not Path(self.filename).exists():
