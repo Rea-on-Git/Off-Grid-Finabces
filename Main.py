@@ -27,7 +27,7 @@ def main():
 
     while True:
         Main_menu()
-        option = get_choice("Find choice (1-5)", ['1', '2', '3', '4', '5'])
+        option = get_choice("Find choice (1-7)", ['1', '2', '3', '4', '5', '6', '7'])
 
         if option == '1':
             amount = get_posostoive_float(f"Enter the allowance amount:  ")
@@ -46,26 +46,29 @@ def main():
             print(f"\n  Current Balance: {format_currency(tracker.view_balance())}\n")
 
         elif option == '5':
-            amount = get_posostoive_float(f"Enter expense amount:  {format_currency}")
+            amount = get_posostoive_float(f"Enter transaction amount: ")
             description = get_description()
-            tran_type = get_choice("Type (INCOME/EXPENSE):  " , ['INCOME', 'EXPENSE'])
+            tran_type = get_choice("Type (ALLOWANCE/EXPENSE):  " , ['ALLOWANCE', 'EXPENSE'])
             frequency = get_choice("Frequency (DaIly/Weekly/Monthly): " , ['DAILY', 'WEEKLY', 'MONTHLY'])
 
             day_value = None
-            if frequency == "weekly":
+            if frequency == "WEEKLY":
                 print("0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun")
-                day_value = int(input("Enter the day of week(1-6)"))
-            elif frequency == "monthly":
+                day_value = int(input("Enter the day of week(1-6): "))
+            elif frequency == "MONTHLY":
                 day_value = int(input("Enter the day of month(1-31): "))
             
 
             tracker.reccuring.add_reccuring(amount, description, tran_type, frequency, day_value)
 
         elif option == '6':
-            tracker.reccuring.view_reccuring
+            tracker.reccuring.view_reccuring()
 
         elif option == '7':
-            
+            tracker.reccuring.view_reccuring()
+            idx = int(input("Enter the number to delete: "))
+            tracker.reccuring.delete_reccuring(idx)
+
 
             
 

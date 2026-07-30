@@ -16,7 +16,7 @@ def get_choice(prompt, valid_options):
             return choice
         print(f"Please enter a valid opition From the list:  {','.join(valid_options)}")
 
-def get_description(prompt ="Enter Description "):
+def get_description(prompt ="Enter Description:  "):
     while True:
         desc = input(prompt.strip())
 

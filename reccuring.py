@@ -36,7 +36,7 @@ class Reccuring():
 
     def add_reccuring(self, amount, description, tran_type, frequency, day_value):
 
-        rule = {
+        reccuring = {
             'amount' : amount,
             'description' : description,
             'type' : tran_type,
@@ -44,9 +44,9 @@ class Reccuring():
             'day' : day_value
          }
 
-        self.reccuring.append(rule)
+        self.reccuring.append(reccuring)
         self.save_reccuring
-        print(f"Reccuring {tran_type} of {format_currency(amount)} ({frequency})")
+        print(f"Reccuring {tran_type} of {format_currency(amount)} ({frequency} on {day_value})")
 
     def view_reccuring(self):
         if not self.reccuring:
@@ -54,7 +54,7 @@ class Reccuring():
             return
         print("\n" + "="*60)
         for i, r in enumerate(self.reccuring, 1):
-            print(f"{i} . {r['type']} ${r['amount'] :.2f} - {r['description']}" f" {r['frequency']} , day={r['day_value']}")
+            print(f"{i} . {r['type']} ${r['amount'] :.2f} - {r['description']}" f" {r['frequency']} , day={r['day']}")
             print("=" * 60)
 
     def delete_reccuring(self, index):
