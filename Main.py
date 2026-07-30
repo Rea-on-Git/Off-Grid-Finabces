@@ -1,5 +1,6 @@
 from Currency import  format_currency
 from tools import get_posostoive_float, get_choice, get_description
+from reccuring import Reccuring
 from Transactions import Tracker
 
 def Main_menu():
@@ -26,7 +27,7 @@ def main():
 
     while True:
         Main_menu()
-        option = get_choice("Find choice (1-4)", ['1', '2', '3', '4'])
+        option = get_choice("Find choice (1-5)", ['1', '2', '3', '4', '5'])
 
         if option == '1':
             amount = get_posostoive_float(f"Enter the allowance amount:  ")
@@ -43,6 +44,27 @@ def main():
 
         elif option == '4':
             print(f"\n  Current Balance: {format_currency(tracker.view_balance())}\n")
+
+        elif option == '5':
+            amount = get_posostoive_float(f"Enter expense amount:  {format_currency}")
+            description = get_description()
+            trans_type = get_choice("Type (INCOME/EXPENSE):  " , ['INCOME', 'EXPENSE'])
+            frequency = get_choice("Frequency (DaIly/Weekly/Monthly): " ,
+                                   ['Daily', 'Weekly', 'Monthly'])
+
+            day_value = None
+            if frequency == "weekly":
+                print("0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun")
+                day_value = int(input("Enter the day of week(1-6)"))
+            elif frequency == "monthly":
+                day_value = int(input("Enter the day of month(1-31): "))
+
+            
+
+
+
+            
+
             
 
 main()

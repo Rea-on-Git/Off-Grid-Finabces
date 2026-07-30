@@ -64,3 +64,6 @@ class Tracker:
             print(f" {t['date'] :<20}   {t['type'] :<10}  {format_currency(t['amount']) :<12}  {t['description']} ")
         print("=" * 60)
 
+    def _apply_reccuring(self):
+        apply = 
+
