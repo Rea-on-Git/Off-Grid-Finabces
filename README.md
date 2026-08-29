@@ -25,6 +25,17 @@ I also used a tutorial for the savings section just to double check something an
 
 ## How it fits the theme
 I mean I already covered this earlier but the project contains no Online and unnecessary features making it 100 percent offline while still being super effective. It can be used from anywhere on any computer without the need for an active internet connection.
+## How to Run the program
+### The Build I made
+1.Simply head to the release section of my repository 
+2.Install the EXE 
+3.Store it in a folder and run it
+### Locally on your own computer
+1. It was built on windows but should work on Mac and Linux
+2. Clone this Repository
+3. Make any changes you want
+4. Run Main.py to test your changes
+5. Once you are happy install pyinstaller using "pip install pyinstaller"
+6. Then After that run the command "pyinstaller --onefile main.py" and your own build will be created.
 
-lastly I would I just like to say Thank you to the Alchemize team and Hackclub for all these Amazing opportunities.
 
